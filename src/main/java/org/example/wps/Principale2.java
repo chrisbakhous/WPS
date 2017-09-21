@@ -117,7 +117,7 @@
 ////		String s = " ";
 ////		for (int n = 0; n<pointsCoordinates4.size();n++)
 ////		{
-////			s = s + " point numéro  " + n +"\n"+pointsCoordinates4.get(n).get(0)+"@"+pointsCoordinates4.get(n).get(1)+"\n" ;
+////			s = s + " point numero  " + n +"\n"+pointsCoordinates4.get(n).get(0)+"@"+pointsCoordinates4.get(n).get(1)+"\n" ;
 ////		}
 ////		System.out.println(s);
 //

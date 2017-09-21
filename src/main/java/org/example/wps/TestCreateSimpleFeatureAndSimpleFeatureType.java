@@ -1,16 +1,20 @@
 package org.example.wps;
 
-import java.util.ArrayList;
 import java.util.List;
-
 import org.geotools.data.DataUtilities;
 import org.geotools.feature.SchemaException;
+import org.geotools.referencing.CRS;
 import org.opengis.feature.simple.SimpleFeature;
 import org.opengis.feature.simple.SimpleFeatureType;
+import org.opengis.referencing.FactoryException;
+import org.opengis.referencing.NoSuchAuthorityCodeException;
+import org.opengis.referencing.crs.CRSAuthorityFactory;
+import org.opengis.referencing.crs.CoordinateReferenceSystem;
 
 public class TestCreateSimpleFeatureAndSimpleFeatureType {
 
-	public static void main(String[] args) throws SchemaException {
+	@SuppressWarnings("deprecation")
+	public static void main(String[] args) throws SchemaException, NoSuchAuthorityCodeException, FactoryException {
 		
 	//	SimpleFeatureType lineType = DataUtilities.createType("LINE", "centerline:LineString,name:\"\",id:0");
 		SimpleFeatureType RadialType = DataUtilities.createType("RADIAL", "geometry:LineString,name:\"\",id:0");
@@ -25,7 +29,17 @@ public class TestCreateSimpleFeatureAndSimpleFeatureType {
 		{
 		  System.out.println(Attribute);
 		}
+		
 
+			CRSAuthorityFactory   factory = CRS.getAuthorityFactory(true);
+			CoordinateReferenceSystem crs = CRS.decode("EPSG:2154");
+			CoordinateReferenceSystem crs2 = factory.createCoordinateReferenceSystem("EPSG:2154");
+			int crsCode = CRS.lookupEpsgCode(crs,true);
+
+			System.out.println("crs = " + crs);
+			System.out.println("crsName = " + crs.getName());
+			System.out.println("crs2Name = " + crs2.getName());
+			System.out.println("crsCode = " + crsCode);
 	}
 
 }

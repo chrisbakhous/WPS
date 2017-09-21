@@ -16,7 +16,7 @@ public class Line {
 	}
 	
 	
-	public Double lineLength () //Cette méthode calcule la somme des longeurs des segments formant la ligne
+	public Double lineLength () //Cette methode calcule la somme des longeurs des segments formant la ligne
 	{
 		Double res = 0.0;
 		for(int i=0;i<this.segmentsList.size();i++)
